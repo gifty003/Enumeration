@@ -1,6 +1,3 @@
-# Enumeration
-Enumeration Techniques
-
 # Explore Google hacking and enumeration 
 
 # AIM:
@@ -23,91 +20,185 @@ Open terminal and try execute some kali linux commands
 
 ## Pen Test Tools Categories:  
 
-Following Categories of pen test tools are identified:
-Information Gathering.
 
-Google Hacking:
+| Operator    | Description                        | Example Usage           |
+| ----------- | ---------------------------------- | ----------------------- |
+| `site:`     | Search within a specific domain    | `site:example.com`      |
+| `inurl:`    | Search in URL                      | `inurl:admin`           |
+| `intitle:`  | Search in page title               | `intitle:"index of"`    |
+| `filetype:` | Search by file type                | `filetype:pdf`          |
+| `intext:`   | Search inside page text            | `intext:"confidential"` |
+| `link:`     | Pages that link to a specific site | `link:example.com`      |
+| `cache:`    | View cached version of a site      | `cache:example.com`     |
+| `ext:`      | Same as filetype                   | `ext:xls`               |
 
-Google hacking, also known as Google dorking, is a technique that involves using advanced operators to perform targeted searches on Google. These operators can be used to search for specific types of information, such as sensitive data that may have been inadvertently exposed on the web. Here are some advanced operators that can be used for Google hacking:
+ ## Architecture 
+```
+NAME : GIFTSON RAJARATHINAM N
+REG NO : 212222233002
+```
+ ```
++----------------------+
+|   Attacker / Hacker  |
+|   (Browser & Google) |
++----------+-----------+
+           |
+           | Google Dork Queries
+           v
++---------------------------+
+|       Google Search       |
++---------------------------+
+           |
+           | Indexed Public Content
+           v
++---------------------------+
+|   Target Websites / Data  |
+| - Leaked files            |
+| - Open directories        |
+| - Sensitive info          |
++---------------------------+
 
+```
+
+# Output 1:
 site: This operator allows you to search for pages that are within a specific website or domain. For example, "site:example.com" would search for pages that are on the example.com domain.
-Following searches for all the sites that is in the domain yahoo.com
 
+<img width="1709" height="951" alt="image" src="https://github.com/user-attachments/assets/f07a3a32-7b99-43f9-80ba-1f3acc98dcc2" />
+
+# Output 2:
 filetype: This operator allows you to search for files of a specific type. For example, "filetype:pdf" would search for all PDF files.
-Following searches for pdf file in the domain yahoo.com
 
+<img width="1708" height="954" alt="image" src="https://github.com/user-attachments/assets/8fe6a9d0-5e16-4642-b081-d17fbd6ebd68" />
 
-
+# Output 3:
 intext: This operator allows you to search for pages that contain specific text within the body of the page. For example, "intext:password" would search for pages that contain the word "password" within the body of the page.
 
+<img width="1662" height="952" alt="image" src="https://github.com/user-attachments/assets/323169fa-aaf8-4dbe-b6f1-91973296a33e" />
 
-inurl: This operator allows you to search for pages that contain specific text within the URL. For example, "inurl:admin" would search for pages that contain the word "admin" within the URL.
-
+# Output 4:
 intitle: This operator allows you to search for pages that contain specific text within the title tag. For example, "intitle:index of" would search for pages that contain "index of" within the title tag.
 
+<img width="1709" height="951" alt="image" src="https://github.com/user-attachments/assets/208986f5-8996-4683-be5b-40df488ac5ce" />
+
+# Output 5:
+inurl: This operator allows you to search for pages that contain specific text within the URL. For example, "inurl:admin" would search for pages that contain the word "admin" within the URL.
+
+<img width="1712" height="951" alt="image" src="https://github.com/user-attachments/assets/f896abd1-17e1-4afe-b5cc-937051a2e2ab" />
+
+# Output 5:
 link: This operator allows you to search for pages that link to a specific URL. For example, "link:example.com" would search for pages that link to the example.com domain.
 
+<img width="1710" height="954" alt="image" src="https://github.com/user-attachments/assets/4936c055-393a-4e09-802a-7c9e71650caf" />
+
+# Output 6:
 cache: This operator allows you to view the cached version of a page. For example, "cache:example.com" would show the cached version of the example.com website.
 
- 
-#DNS Enumeration
+<img width="1720" height="949" alt="image" src="https://github.com/user-attachments/assets/7ff69836-3f96-4c79-b573-a6698386fee2" />
 
 
-##DNS Recon
-provides the ability to perform:
-Check all NS records for zone transfers
-Enumerate general DNS records for a given domain (MX, SOA, NS, A, AAAA, SPF , TXT)
-Perform common SRV Record Enumeration
-Top level domain expansion
+# DNS Enumeration
+
+
+## DNS Recon
+
+| Record Type | Meaning                        | Example Output                   |
+| ----------- | ------------------------------ | -------------------------------- |
+| A           | Host to IPv4 address           | `example.com -> 93.184.216.34`   |
+| AAAA        | Host to IPv6 address           | `example.com -> ::1`             |
+| MX          | Mail server info               | `mail.example.com`               |
+| NS          | Name servers                   | `ns1.example.com`                |
+| TXT         | Misc data (SPF, verifications) | `v=spf1 include:_spf.google.com` |
+| CNAME       | Canonical names (aliases)      | `www -> example.com`             |
+
+## Common Tools Used (Kali Linux)
+
+| Tool           | Description                                | Usage Example                           |
+| -------------- | ------------------------------------------ | --------------------------------------- |
+| `nslookup`     | DNS lookup tool (simple queries)           | `nslookup example.com`                  |
+| `dig`          | DNS lookup utility (detailed)              | `dig example.com any`                   |
+| `host`         | Simple DNS querying tool                   | `host example.com`                      |
+| `dnsenum`      | Perl script to enumerate DNS info          | `dnsenum example.com`                   |
+| `fierce`       | DNS scanner to locate non-contiguous IPs   | `fierce -dns example.com`               |
+| `dnsrecon`     | Powerful DNS enumeration script            | `dnsrecon -d example.com -a`            |
+| `theHarvester` | Subdomain enumeration using search engines | `theHarvester -d example.com -b google` |
+
+
 ## OUTPUT:
 
+<img width="942" height="489" alt="image" src="https://github.com/user-attachments/assets/dbf2b5c5-bf08-4a4e-8ef7-a020ca76bcd6" />
+
+
+## Architecture Diagram 
+
+```
++-------------------+        +------------------+       +------------------+
+|                   |        |                  |       |                  |
+|   Attacker (You)  +------->|   Target Server   +<----->+    DNS Server    |
+| Kali Linux / Parrot|       | (Mail / DNS Host) |       |  (Authoritative) |
++---------+---------+        +---------+--------+       +---------+--------+
+          |                            ^                          ^
+          |                            |                          |
+          |                            |                          |
+          |           +-----------------------------+            |
+          |           |      Information Tools      |            |
+          |           |-----------------------------|            |
+          |           | smtp-user-enum              |            |
+          |           | nmap --script smtp-enum-*   |            |
+          |           | dnsenum                     |<-----------+
+          |           +-----------------------------+
+          |
+          v
++-----------------------------+
+|   Output/Report             |
+|  - Usernames Found          |
+|  - MX Records / Zones       |
+|  - Subdomains / IPs         |
++-----------------------------+
+
+```
+
+## dnsenum
+**Purpose:** A multithreaded Perl script to enumerate information from DNS servers.
+
+**Use case:** Performs DNS zone transfers, brute force subdomains, and gather host IPs.
+
+```
+dnsenum example.com
+```
+
+## Output:
+<img width="952" height="845" alt="image" src="https://github.com/user-attachments/assets/8b953d46-9213-477d-8e86-462e9336c6f3" />
+
+<img width="948" height="720" alt="image" src="https://github.com/user-attachments/assets/ed14b8d2-2b94-4880-afbe-2c2d62fdc97f" />
 
 
 
+## smtp-user-enum
+**Purpose:** Standalone tool used to enumerate valid users by using the VRFY, EXPN, or RCPT TO commands.
 
+**Use case:** Brute-forces SMTP to find users.
 
-
-##dnsenum
-Dnsenum is a multithreaded perl script to enumerate DNS information of a domain and to discover non-contiguous ip blocks. The main purpose of Dnsenum is to gather as much information as possible about a domain. The program currently performs the following operations:
-
-Get the host’s addresses (A record).
-Get the namservers (threaded).
-Get the MX record (threaded).
-Perform axfr queries on nameservers and get BIND versions(threaded).
-Get extra names and subdomains via google scraping (google query = “allinurl: -www site:domain”).
-Brute force subdomains from file, can also perform recursion on subdomain that have NS records (all threaded).
-Calculate C class domain network ranges and perform whois queries on them (threaded).
-Perform reverse lookups on netranges (C class or/and whois netranges) (threaded).
-Write to domain_ips.txt file ip-blocks.
-This program is useful for pentesters, ethical hackers and forensics experts. It also can be used for security tests.
-
-
-##smtp-user-enum
-Username guessing tool primarily for use against the default Solaris SMTP service. Can use either EXPN, VRFY or RCPT TO.
-
-
-In metasploit list all the usernames using head /etc/passwd or cat /etc/passwd:
-
-select any username in the first column of the above file and check the same
-
-
-#Telnet for smtp enumeration
-Telnet allows to connect to remote host based on the port no. For smtp port no is 25
-telnet <host address> 25 to connect
-and issue appropriate commands
+```
+smtp-user-enum -M VRFY -U users.txt -t <target-ip>
+```
   
- ##Output
+ ## Output:
+ <img width="944" height="301" alt="image" src="https://github.com/user-attachments/assets/d2ff93f8-bf06-4080-8bfe-762f4a8a1c1b" />
+
   
-  
+
 
 ## nmap –script smtp-enum-users.nse <hostname>
 
-The smtp-enum-users.nse script attempts to enumerate the users on a SMTP server by issuing the VRFY, EXPN or RCPT TO commands. The goal of this script is to discover all the user accounts in the remote system.
+**Purpose:** Uses smtp-enum-users NSE script to enumerate valid users on an SMTP server.
 
+**Use case:** Helps identify email accounts on mail servers.
 
+```
+nmap -p 25 --script smtp-enum-users.nse <target-ip>
+```
 ## OUTPUT:
-
+<img width="944" height="84" alt="image" src="https://github.com/user-attachments/assets/977d4801-578c-4785-bec7-3c405165cccf" />
 
 ## RESULT:
 The Google hacking keywords and enumeration tools were identified and executed successfully
-
